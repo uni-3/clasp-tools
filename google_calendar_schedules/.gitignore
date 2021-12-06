@@ -1,0 +1,6 @@
+.local
+node_modules
+
+# cred
+creds.json
+.clasprc.json

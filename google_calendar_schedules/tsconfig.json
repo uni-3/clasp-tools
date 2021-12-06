@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "types": ["google-apps-script", "jest", "node"],
+    "lib": ["ES2019"],
+    "experimentalDecorators": true,
+    "target": "ES2019",
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": false,
+    "esModuleInterop": true
+  },
+  "include": ["src/**/*.ts"]
+}

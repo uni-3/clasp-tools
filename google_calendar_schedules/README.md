@@ -6,11 +6,6 @@ google action script上で動く
 取得するカレンダーの種類はプロパティにセットしている
 projectのエディタから設定の変更を行う
 
-ref.
-- 変更方法
-https://auto-worker.com/blog/?p=2365#toc_id_6
-
-
 ### セットアップ
 
 [clasp](https://github.com/google/clasp)を使用

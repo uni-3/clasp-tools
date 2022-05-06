@@ -1,0 +1,43 @@
+{
+  "name": "freee_api_data_extractor",
+  "version": "1.0.0",
+  "description": "freee APIからデータを取得",
+  "main": "index.js",
+  "scripts": {
+    "login": "clasp login",
+    "login-creds": "clasp login --creds creds.json",
+    "who": "clasp login --status",
+    "logout": "clasp logout",
+    "list": "clasp list",
+    "open": "clasp open",
+    "push-watch": "clasp push --watch",
+    "push": "clasp push",
+    "deploy": "clasp deploy",
+    "r": "clasp run",
+    "main": "clasp run main",
+    "main-dryrun": "clasp run main --params '{\"dryRun\": true}'",
+    "test": "jest",
+    "test-watch": "jest --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google/clasp": "^2.4.1",
+    "@types/google-apps-script": "^1.0.41",
+    "typescript": "^4.1.5"
+  },
+  "devDependencies": {
+    "@types/node": "^15.12.4",
+    "jest": "^27.1.0",
+    "ts-jest": "^27.0.5"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.ts$": "ts-jest"
+    }
+  }
+}

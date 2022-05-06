@@ -1,0 +1,38 @@
+{
+    "timeZone": "Asia/Tokyo",
+    "executionApi": {
+        "access": "DOMAIN"
+    },
+    "oauthScopes": [
+        "https://www.googleapis.com/auth/script.deployments",
+        "https://www.googleapis.com/auth/script.projects",
+        "https://www.googleapis.com/auth/script.webapp.deploy",
+        "https://www.googleapis.com/auth/service.management",
+        "https://www.googleapis.com/auth/logging.read",
+        "https://www.googleapis.com/auth/cloud-platform",
+        "https://www.googleapis.com/auth/script.external_request"
+    ],
+    "dependencies": {
+        "libraries": [
+            {
+                "userSymbol": "Moment",
+                "version": "9",
+                "libraryId": "15hgNOjKHUG4UtyZl9clqBbl23sDvWMS8pfDJOyIapZk5RBqwL3i-rlCo"
+            },
+            {
+                "userSymbol": "OAuth2",
+                "version": "41",
+                "libraryId": "1B7FSrk5Zi6L1rSxxTDgDEUsPzlukDsi4KGuTMorsTQHhGBzBkMun4iDF"
+            }
+        ],
+        "enabledAdvancedServices": [
+            {
+                "userSymbol": "BigQuery",
+                "version": "v2",
+                "serviceId": "bigquery"
+            }
+        ]
+    },
+    "exceptionLogging": "STACKDRIVER",
+    "runtimeVersion": "V8"
+}

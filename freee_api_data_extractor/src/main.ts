@@ -1,15 +1,10 @@
-/*
-参照ライブラリ
-title OAuth2
-project_key 1B7FSrk5Zi6L1rSxxTDgDEUsPzlukDsi4KGuTMorsTQHhGBzBkMun4iDF
-*/
-
 //連携アプリ情報
 const Client_ID = "ここにClient IDを設定";
 const Client_Secret = "ここにClient Secretを設定";
+const host = "https://api.freee.co.jp/api/1/";
 
+// スクリプトへのアクセスを許可する認証URLを取得
 function Auth() {
-  //スクリプトへのアクセスを許可する認証URLを取得
   const authUrl = getService().getAuthorizationUrl();
   console.log(authUrl);
 }
@@ -28,7 +23,7 @@ function getService() {
 }
 
 //認証コールバック関数
-function authCallback(request) {
+function authCallback(request: object) {
   const service = getService();
   const isAuthorized = service.handleCallback(request);
   if (isAuthorized) {
@@ -38,20 +33,35 @@ function authCallback(request) {
   }
 }
 
-function getCompanies() {
-  //freeeAPIからアクセストークンを取得
-  const accessToken = getService().getAccessToken();
+/*
+  APIの実行
+*/
 
-  //事業所一覧を取得するリクエストURL
-  const requestUrl = "https://api.freee.co.jp/api/1/companies";
+// アクセス先に応じてレスポンス取得
+function getResource(path: string) {
+  let service = getService();
+  if (!service.hasAccess()) {
+    let authUrl = service.getAuthorizationUrl();
+    Logger.log("Open the following URL and re-run the script: %s", authUrl);
+    throw new Error("アクセストークンがありません");
+  }
 
-  //freeeAPIへのリクエストに付与するパラメータ
-  const params = {
+  let url = host + path;
+  let res = UrlFetchApp.fetch(url, {
     method: "get",
-    headers: { Authorization: "Bearer " + accessToken },
-  };
+    headers: {
+      Authorization: "Bearer " + service.getAccessToken(),
+    },
+  });
 
-  //リクエスト送信とレスポンス取得
-  const response = UrlFetchApp.fetch(requestUrl, params).getContentText();
-  console.log(response);
+  return JSON.parse(res.getContentText());
+}
+
+function main() {
+  let companies = "companies";
+  let res = getResource(companies);
+  // TODO: レスポンス確認
+  let company_id = res.companies[0].id;
+
+  // TODO: その他APIの取得と加工
 }
